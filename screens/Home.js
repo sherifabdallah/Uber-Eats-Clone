@@ -1,4 +1,4 @@
-import { View, Text, StatusBar, ScrollView, ActivityIndicator, Keyboard } from 'react-native';
+import { View, Text, StatusBar, ScrollView } from 'react-native';
 import React, { useState, useEffect } from 'react';
 import HeaderTabs from '../components/home/HeaderTabs';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -53,7 +53,7 @@ export default function Home({ navigation }) {
 
       {/* Restaurant Items Part */}
       <ScrollView showsVerticalScrollIndicator={false}>
-      <Categories />
+        <Categories />
         {ispendingrRestaurants &&
           <>
             <SkeletonRestaurantItem key="1" />
@@ -61,7 +61,7 @@ export default function Home({ navigation }) {
             <SkeletonRestaurantItem key="3" />
           </>
         }
-<RestaurantItem restaurantData={restaurantData} navigation={navigation} />
+        <RestaurantItem restaurantData={restaurantData} navigation={navigation} />
       </ScrollView>
 
       <Divider width={1} />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import BouncyCheckbox from 'react-native-bouncy-checkbox';
 
 const foods = [
   {
@@ -52,14 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 20,
-    // backgroundColor: '#fff',
-    // borderRadius: 10,
-    // marginBottom: 20,
-    // shadowColor: '#000',
-    // shadowOffset: { width: 0, height: 2 },
-    // shadowOpacity: 0.2,
-    // shadowRadius: 2,
-    // elevation: 2,
+
   },
   foodInfoContainer: {
     width: 240,
@@ -69,20 +63,8 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 19,
     fontWeight: "900",
-    // marginBottom: 5,
 
   },
-  // descriptionStyle: {
-  //   fontSize: 14,
-  //   color: '#555',
-  //   marginBottom: 5,
-  // },
-
-  // priceStyle: {
-  //   fontSize: 16,
-  //   fontWeight: 'bold',
-  //   color: '#007bff',
-  // },
 
   foodImage: {
     width: 100,
@@ -94,16 +76,22 @@ const styles = StyleSheet.create({
 
 const MenuItems = () => {
   return (
-    <ScrollView>
+    <>
       {foods.map((food, index) => (
         <View key={index}>
           <View style={styles.menuItemStyle}>
+            <BouncyCheckbox
+              style={{borderRadius: 0}}
+              iconStyle={{ borderColor: 'lightgray', borderRadius: 0 }}
+              fillColor="green"
+            />
+
             <FoodInfo food={food} />
             <FoodImage food={food} />
           </View>
         </View>
       ))}
-    </ScrollView>
+    </>
   );
 };
 

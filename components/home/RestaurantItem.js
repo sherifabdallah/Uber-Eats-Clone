@@ -23,11 +23,14 @@ export const RestaurantItem = ({ restaurantData, navigation }) => {
                     key={index}
                     image={restaurant.image_url}
                     name={restaurant.name}
-                    type={"Sandwiches, Pizza v"}
+                    type={"Sandwiches, Pizza"}
                     price={restaurant.price}
                     time={restaurant.time}
                     delivery_price={restaurant.delivery_price}
                     categories={restaurant.categories}
+                    reviews={restaurant.review_count}
+                    rating={restaurant.rating}
+
                 />
             ))}
         </View>
@@ -37,7 +40,6 @@ export const RestaurantItem = ({ restaurantData, navigation }) => {
 const RestaurantCard = ({ navigation, ...props }) => (
     <TouchableOpacity
         activeOpacity={0.5}
-        key={props.index}
         onPress={() => navigation.navigate("RestaurantDetail", {
             name: props.name,
             image: props.image,
@@ -45,6 +47,7 @@ const RestaurantCard = ({ navigation, ...props }) => (
             reviews: props.reviews,
             rating: props.rating,
             categories: props.categories,
+            navigation: navigation,
         })}
     >
         <View style={styles.container}>
